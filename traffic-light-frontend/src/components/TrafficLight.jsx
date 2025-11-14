@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 
 const TrafficLight = () => {
   const [lightColor, setLightColor] = useState("red");
+  const TrafficSignals = {
+    red: { nextColor: "green", duration: 4000 },
+    yellow: { nextColor: "red", duration: 500 },
+    green: { nextColor: "yellow", duration: 3000 },
+  };
 
   useEffect(() => {
-    const durations = { red: 4000, yellow: 500, green: 3000 };
-    const nextColor = { red: "green", yellow: "red", green: "yellow" };
+    const { nextColor, duration } = TrafficSignals[lightColor];
 
     const t = setTimeout(() => {
-      setLightColor(nextColor[lightColor]);
-    }, durations[lightColor]);
+      setLightColor(nextColor);
+    }, duration);
 
     return () => clearTimeout(t);
   }, [lightColor]);
