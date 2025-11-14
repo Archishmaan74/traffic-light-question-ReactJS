@@ -3,7 +3,7 @@ import StyledTrafficLight from "./TrafficLightStyles";
 import { useEffect, useState } from "react";
 
 const TrafficLight = () => {
-  const [lightColor, setLightColor] = useState("green");
+  const [lightColor, setLightColor] = useState("red");
 
   useEffect(() => {
     const durations = { red: 4000, yellow: 500, green: 3000 };
